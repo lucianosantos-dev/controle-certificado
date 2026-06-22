@@ -24,6 +24,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin("*")
 @Tag(name = "Solicitações", description = "Endpoints para o fluxo de pedido e gestão de certificados")
 public class SolicitacaoController {
 
@@ -51,7 +52,7 @@ public class SolicitacaoController {
     }
 
     @GetMapping("/solicitacoes")
-    @PreAuthorize("hasAnyRole('SECRETARIA', 'PEDAGOGICO')")
+    @PreAuthorize("hasAnyAuthority('SECRETARIA', 'PEDAGOGICO')")
     @Operation(summary = "Lista todas as solicitações (Admin)", description =
             "Retorna de forma paginada todas as solicitações do sistema. Permite buscar por nome ou CPF do aluno.")
     public ResponseEntity<Page<SolicitacaoListagemResponse>> findAll(
@@ -64,7 +65,7 @@ public class SolicitacaoController {
     }
 
     @PatchMapping("/solicitacoes/{id}/status")
-    @PreAuthorize("hasAnyRole('SECRETARIA', 'PEDAGOGICO')")
+    @PreAuthorize("hasAnyAuthority('SECRETARIA', 'PEDAGOGICO')")
     @Operation(summary = "Atualiza o status da solicitação (Admin)", description =
             "Evolui o status da solicitação seguindo o fluxo obrigatório: PENDENTE -> CONCLUIDO -> ENTREGUE.")
     @ApiResponses(value = {
