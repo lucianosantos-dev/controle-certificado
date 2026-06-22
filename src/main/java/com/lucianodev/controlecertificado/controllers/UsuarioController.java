@@ -19,6 +19,7 @@ import java.net.URI;
         = "Endpoints para gestão de contas e geração do token JWT")
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class UsuarioController {
 
     private final UsuarioService service;
@@ -52,4 +53,6 @@ public class UsuarioController {
     public ResponseEntity<UsuarioResponse> findByUserName(@PathVariable String username) {
         return ResponseEntity.ok(service.findByUsername(username));
     }
+
+
 }
