@@ -10,12 +10,11 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin("*")
 @Tag(name = "Autenticação", description = "Endpoints para login e segurança do sistema")
 public class AutenticacaoController {
 
@@ -34,4 +33,5 @@ public class AutenticacaoController {
         String token = service.autenticar(dto);
         return ResponseEntity.ok(new TokenResponseDto(token));
     }
+
 }
