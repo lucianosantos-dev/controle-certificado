@@ -32,6 +32,7 @@ public class SolicitacaoMapper {
                 entity.getId(),
                 entity.getNomeAluno(),
                 entity.getCurso(),
+                entity.getCpf(),
                 entity.getDataSolicitacao(),
                 entity.getDataLimiteEntrega(),
                 entity.getStatusSolicitacao()

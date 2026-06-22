@@ -8,6 +8,7 @@ public record SolicitacaoListagemResponse(
         Long id,
         String nomeAluno,
         String curso,
+        String cpf,
         LocalDate dataSolicitacao,
         LocalDate dataLimiteEntrega,
         StatusSolicitacao statusSolicitacao
