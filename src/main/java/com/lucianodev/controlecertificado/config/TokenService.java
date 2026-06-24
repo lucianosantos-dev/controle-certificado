@@ -16,7 +16,7 @@ import java.util.Date;
 @Service
 public class TokenService {
 
-    @Value("${JWT_SECRET:chave-super-secreta-inap-certificados-2026-s...}")
+    @Value("${JWT_SECRET}")
     private String secret;
 
     private static final String ISSUER = "api-solicitacao-certificado";
