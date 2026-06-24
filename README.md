@@ -11,7 +11,7 @@ API RESTful desenvolvida para o sistema de Controle de Certificados da institui�
 Este repositório contém o **Backend** da aplicação. O frontend foi construído em Angular e consome esta API.
 
 ## 💻 Interface de Usuário (Frontend)
-O painel visual utilizado pelos alunos e administradores foi desenvolvido em Angular 17. 
+O painel visual utilizado pelos alunos e administradores foi desenvolvido em Angular 21. 
 👉 **[Acesse o repositório do Frontend clicando aqui](https://github.com/lucianosantos-dev/controle-certificado-front)**
 
 ## 🚀 Tecnologias e Arquitetura
