@@ -20,7 +20,7 @@ O projeto foi construído seguindo princípios de Clean Code e aplicando os padr
 
 **Backend:**
 * **Java 21+**
-* **Spring Boot 4** (Web, Data JPA, Security)
+* **Spring Boot 4** (Web, Data JPA, Security, Validation)
 * **Spring Security & JWT (JSON Web Token)** para autenticação e autorização stateless.
 * **Flyway** para versionamento e migrações do banco de dados.
 
@@ -28,6 +28,7 @@ O projeto foi construído seguindo princípios de Clean Code e aplicando os padr
 * **PostgreSQL** hospedado em nuvem (Supabase).
 
 **Infraestrutura e DevOps:**
+* **Docker:** para conteinerização e padronização do ambiente.
 * **Render:** Hospedagem da API na nuvem.
 * **Netlify:** Hospedagem do Frontend (Angular).
 * **UptimeRobot:** Monitoramento contínuo (Health Checks) para garantir alta disponibilidade e evitar o cold start (hibernação) do servidor no Render, garantindo um login instantâneo.
