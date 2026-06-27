@@ -14,7 +14,6 @@ public class UsuarioMapper {
                 .email(request.getEmail())
                 .username(request.getUsername())
                 .senha(request.getSenha())
-                .perfil(request.getPerfil())
                 .build();
     }
 

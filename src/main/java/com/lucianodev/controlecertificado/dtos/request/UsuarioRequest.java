@@ -29,8 +29,4 @@ public class UsuarioRequest {
     @NotNull(message = "Senha não pode ser nullo")
     @Size(max = 150)
     private String senha;
-
-    @NotNull(message = "Perfil não pode ser nullo")
-    private Perfil perfil;
-
 }

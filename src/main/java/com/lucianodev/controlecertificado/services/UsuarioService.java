@@ -3,6 +3,7 @@ package com.lucianodev.controlecertificado.services;
 import com.lucianodev.controlecertificado.dtos.request.UsuarioRequest;
 import com.lucianodev.controlecertificado.dtos.response.UsuarioResponse;
 import com.lucianodev.controlecertificado.entities.Usuario;
+import com.lucianodev.controlecertificado.enums.Perfil;
 import com.lucianodev.controlecertificado.exceptions.ConflictException;
 import com.lucianodev.controlecertificado.mapper.UsuarioMapper;
 import com.lucianodev.controlecertificado.repositories.UsuarioRepository;
@@ -11,6 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 
 
 @Service
@@ -29,6 +31,7 @@ public class UsuarioService {
         Usuario user = mapper.toEntity(request);
 
         user.setSenha(encoder.encode(user.getSenha()));
+        user.setPerfil(Perfil.ALUNO);
 
         Usuario usuarioSalvo = repository.save(user);
         return mapper.toResponse(usuarioSalvo);

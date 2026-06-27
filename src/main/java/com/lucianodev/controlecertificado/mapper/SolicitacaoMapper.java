@@ -35,7 +35,8 @@ public class SolicitacaoMapper {
                 entity.getCpf(),
                 entity.getDataSolicitacao(),
                 entity.getDataLimiteEntrega(),
-                entity.getStatusSolicitacao()
+                entity.getStatusSolicitacao(),
+                entity.getTipoCertificado()
         );
     }
 }
