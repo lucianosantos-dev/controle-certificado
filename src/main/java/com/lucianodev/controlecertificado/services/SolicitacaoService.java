@@ -59,8 +59,19 @@ public class SolicitacaoService {
     }
 
     @Transactional(readOnly = true)
-    public Page<SolicitacaoListagemResponse> findAll(String nome, String cpf, Pageable pageable) {
-        return repository.buscarComFiltros(nome, cpf, pageable)
+    public Page<SolicitacaoListagemResponse> findAll(String nome, String cpf, String status, Pageable pageable) {
+
+        StatusSolicitacao statusEnum = null;
+
+        if (status != null && !status.isBlank() && !status.equals("TODOS")) {
+            try {
+                statusEnum = StatusSolicitacao.valueOf(status.toUpperCase());
+            } catch (IllegalArgumentException e) {
+                statusEnum = null;
+            }
+        }
+
+        return repository.buscarComFiltros(nome, cpf, statusEnum, pageable)
                 .map(mapper::toListResponse);
     }
 

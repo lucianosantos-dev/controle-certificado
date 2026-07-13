@@ -10,6 +10,7 @@ public record SolicitacaoListagemResponse(
         String nomeAluno,
         String curso,
         String cpf,
+        String telefone,
         LocalDate dataSolicitacao,
         LocalDate dataLimiteEntrega,
         StatusSolicitacao statusSolicitacao,
