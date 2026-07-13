@@ -1,6 +1,7 @@
 package com.lucianodev.controlecertificado.repositories;
 
 import com.lucianodev.controlecertificado.entities.Solicitacao;
+import com.lucianodev.controlecertificado.enums.StatusSolicitacao;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,6 +19,7 @@ public interface SolicitacaoRepository extends JpaRepository<Solicitacao, Long> 
 
     @Query("SELECT s FROM Solicitacao s WHERE " +
             "(:nome IS NULL OR LOWER(s.nomeAluno) LIKE LOWER(CONCAT('%', :nome, '%'))) AND " +
-            "(:cpf IS NULL OR s.cpf = :cpf)")
-    Page<Solicitacao> buscarComFiltros(String nome, String cpf, Pageable pageable);
+            "(:cpf IS NULL OR s.cpf = :cpf) AND " +
+            "(:status IS NULL OR s.statusSolicitacao = :status)")
+    Page<Solicitacao> buscarComFiltros(String nome, String cpf, StatusSolicitacao status, Pageable pageable);
 }
