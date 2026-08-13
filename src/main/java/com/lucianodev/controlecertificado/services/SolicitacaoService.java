@@ -33,12 +33,20 @@ public class SolicitacaoService {
         var authentication = SecurityContextHolder.getContext().getAuthentication();
         var usuarioLogado = (Usuario) authentication.getPrincipal();
 
-        boolean possuiSolicitacao = repository.
-                existsByUsuarioIdAndCursoIgnoreCase(usuarioLogado.getId(), request.getCurso());
+        String nomePerfil = usuarioLogado.getPerfil().name();
 
-        if (possuiSolicitacao) {
-            throw new ConflictException("Voce ja possui uma solicitaçao para o curso: " + request.getCurso());
+        boolean isAdmin = nomePerfil.equalsIgnoreCase("PEDAGOGICO") ||
+                nomePerfil.equalsIgnoreCase("SECRETARIA");
+
+        if (!isAdmin) {
+            boolean possuiSolicitacao = repository.
+                    existsByUsuarioIdAndCursoIgnoreCase(usuarioLogado.getId(), request.getCurso());
+
+            if (possuiSolicitacao) {
+                throw new ConflictException("Voce ja possui uma solicitaçao para o curso: " + request.getCurso());
+            }
         }
+
 
         Solicitacao solicitacao = mapper.toEntity(request);
         solicitacao.setUsuario(usuarioLogado);
