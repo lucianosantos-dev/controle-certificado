@@ -23,7 +23,7 @@ public class Solicitacao {
     @Column(length = 50, nullable = false)
     private String nomeAluno;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 50, nullable = true)
     private String curso;
 
     @Column(nullable = false)
@@ -53,10 +53,22 @@ public class Solicitacao {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "curso_id")
+    private Curso nomeCurso;
+
+    @Column(name = "financeiro_ok")
+    @Builder.Default
+    private Boolean financeiroOk = false;
+
     @PrePersist
     public void onCreate() {
         this.dataLimiteEntrega = LocalDate.now().plusDays(20);
         this.dataSolicitacao = LocalDate.now();
         this.statusSolicitacao = StatusSolicitacao.PENDENTE;
+    }
+
+    public void marcarFinanceiroComoOk(){
+        this.financeiroOk = true;
     }
 }
