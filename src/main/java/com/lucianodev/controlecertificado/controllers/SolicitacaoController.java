@@ -81,4 +81,23 @@ public class SolicitacaoController {
         solicitacaoService.atualizarStatus(id, request);
         return ResponseEntity.noContent().build();
     }
+
+    @PatchMapping("/solicitacoes/{id}/financeiro")
+    @PreAuthorize("hasAnyAuthority('SECRETARIA', 'PEDAGOGICO')")
+    @Operation(summary = "Verifica financeiro do aluno (Admin)", description = "Verifica financeiro do aluno antes de entregar certificado")
+    @ApiResponse(responseCode = "204", description = "Verificação concluída com sucesso")
+    @ApiResponse(responseCode = "404", description = "Solicitação não encontrada")
+    public ResponseEntity<Void> marcarFinanceiroComoVerificado(@PathVariable Long id){
+        solicitacaoService.marcarFinanceiroComoVerificado(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/solicitacoes/{id}")
+    @Operation(summary = "Recupera solicitação com id", description = "Verifica se existe alguma solicitação com id informado")
+    @ApiResponse(responseCode = "200", description = "Retorna uma solicitação com sucesso")
+    @ApiResponse(responseCode = "404", description = "Solicitação não encontrada com id informado")
+    @ApiResponse(responseCode = "403", description = "Usuário sem permissão para recuperar solicitação")
+    public ResponseEntity<SolicitacaoListagemResponse> buscaPorId(@PathVariable Long id){
+        return ResponseEntity.ok(solicitacaoService.findById(id));
+    }
 }
