@@ -1,6 +1,6 @@
 package com.lucianodev.controlecertificado.dtos.request;
 
-import com.lucianodev.controlecertificado.enums.Perfil;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -19,6 +19,7 @@ public class UsuarioRequest {
     private String nome;
 
     @NotNull(message = "Email não pode ser nullo")
+    @Email(message = "Insira um e-mail válido")
     @Size(max = 100)
     private String email;
 
