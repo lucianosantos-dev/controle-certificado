@@ -8,12 +8,13 @@ import java.time.LocalDate;
 public record SolicitacaoListagemResponse(
         Long id,
         String nomeAluno,
-        String curso,
         String cpf,
         String telefone,
         LocalDate dataSolicitacao,
         LocalDate dataLimiteEntrega,
         StatusSolicitacao statusSolicitacao,
-        TipoCertificado tipoCertificado
+        TipoCertificado tipoCertificado,
+        Long cursoId,
+        Boolean financeiroOk
 ) {
 }
