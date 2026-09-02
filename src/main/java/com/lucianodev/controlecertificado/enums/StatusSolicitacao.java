@@ -1,5 +1,5 @@
 package com.lucianodev.controlecertificado.enums;
 
 public enum StatusSolicitacao {
-    PENDENTE, CONCLUIDO, ENTREGUE
+    PENDENTE, CONCLUIDO, ENTREGUE, AGUARDANDO_RETIRADA;
 }
