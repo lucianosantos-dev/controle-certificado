@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public interface SolicitacaoRepository extends JpaRepository<Solicitacao, Long> {
 
-    boolean existsByUsuarioIdAndCursoIgnoreCase(Long usuarioId, String curso);
+    boolean existsByUsuarioIdAndNomeCursoId(Long usuarioId, Long idCurso);
 
     List<Solicitacao> findByUsuarioId(Long usuarioId);
 
