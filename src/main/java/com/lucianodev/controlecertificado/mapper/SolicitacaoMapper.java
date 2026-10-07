@@ -22,16 +22,16 @@ public interface SolicitacaoMapper {
 
     SolicitacaoResponse toResponse(Solicitacao entity);
 
-    @Mapping(target = "curso", source = "nomeCurso.nome")
+    @Mapping(target = "curso", expression = "java(obterNomeCurso(entity))")
     SolicitacaoListagemResponse toListResponse(Solicitacao entity);
 
-    default String obterNomeCursoOriginal(Solicitacao entity) {
-        if (entity.getCurso() != null && !entity.getCurso().isBlank()) {
-            return entity.getCurso();
+    default String obterNomeCurso(Solicitacao entity) {
+        if (entity == null) {
+            return null;
         }
-        if (entity.getNomeCurso() != null) {
+        if (entity.getNomeCurso() != null && entity.getNomeCurso().getNome() != null) {
             return entity.getNomeCurso().getNome();
         }
-        return null;
+        return entity.getCurso();
     }
 }
