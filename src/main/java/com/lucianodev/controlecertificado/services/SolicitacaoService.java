@@ -50,7 +50,7 @@ public class SolicitacaoService {
                     existsByUsuarioIdAndNomeCursoId(usuarioLogado.getId(), request.getCursoId());
 
             if (possuiSolicitacao) {
-                throw new ConflictException("Voce ja possui uma solicitaçao para o curso: " + request.getCursoId());
+                throw new ConflictException("Você já possui uma solicitação para o curso selecionado.");
             }
         }
 
@@ -75,7 +75,7 @@ public class SolicitacaoService {
     }
 
     @Transactional(readOnly = true)
-    public Page<SolicitacaoListagemResponse> findAll(String nome, String cpf, String status, Pageable pageable) {
+    public Page<SolicitacaoListagemResponse> findAll(String nome, String cpf, String status, Long cursoId, Pageable pageable) {
 
         StatusSolicitacao statusEnum = null;
 
@@ -87,7 +87,7 @@ public class SolicitacaoService {
             }
         }
 
-        return repository.buscarComFiltros(nome, cpf, statusEnum, pageable)
+        return repository.buscarComFiltros(nome, cpf, cursoId, statusEnum, pageable)
                 .map(mapper::toListResponse);
     }
 

@@ -9,7 +9,6 @@ import com.lucianodev.controlecertificado.entities.Usuario;
 import com.lucianodev.controlecertificado.enums.StatusSolicitacao;
 import com.lucianodev.controlecertificado.exceptions.ConflictException;
 import com.lucianodev.controlecertificado.exceptions.ResourceNotFoundException;
-import com.lucianodev.controlecertificado.mapper.SolicitacaoMapper;
 import com.lucianodev.controlecertificado.repositories.SolicitacaoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -22,6 +22,6 @@ public interface SolicitacaoMapper {
 
     SolicitacaoResponse toResponse(Solicitacao entity);
 
-    @Mapping(target = "cursoId", source = "nomeCurso.id")
+    @Mapping(target = "curso", source = "nomeCurso.nome")
     SolicitacaoListagemResponse toListResponse(Solicitacao entity);
 }

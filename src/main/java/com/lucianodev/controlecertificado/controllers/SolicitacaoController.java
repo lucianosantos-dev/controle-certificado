@@ -59,9 +59,10 @@ public class SolicitacaoController {
             @RequestParam(required = false) String nome,
             @RequestParam(required = false) String cpf,
             @RequestParam(required = false) String status,
+            @RequestParam(required = false) Long cursoId,
             @PageableDefault(size = 5, sort = {"dataLimiteEntrega"}) Pageable pageable
     ) {
-        var list = solicitacaoService.findAll(nome, cpf, status, pageable);
+        var list = solicitacaoService.findAll(nome, cpf, status, cursoId, pageable);
         return ResponseEntity.ok(list);
     }
 

@@ -14,7 +14,7 @@ public record SolicitacaoListagemResponse(
         LocalDate dataLimiteEntrega,
         StatusSolicitacao statusSolicitacao,
         TipoCertificado tipoCertificado,
-        Long cursoId,
+        String curso,
         Boolean financeiroOk
 ) {
 }
