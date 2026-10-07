@@ -3,27 +3,14 @@ package com.lucianodev.controlecertificado.mapper;
 import com.lucianodev.controlecertificado.dtos.request.UsuarioRequest;
 import com.lucianodev.controlecertificado.dtos.response.UsuarioResponse;
 import com.lucianodev.controlecertificado.entities.Usuario;
-import org.springframework.stereotype.Component;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
-@Component
-public class UsuarioMapper {
+@Mapper(componentModel = "spring")
+public interface UsuarioMapper {
 
-    public Usuario toEntity(UsuarioRequest request) {
-        return Usuario.builder()
-                .nome(request.getNome())
-                .email(request.getEmail())
-                .username(request.getUsername())
-                .senha(request.getSenha())
-                .build();
-    }
-
-    public UsuarioResponse toResponse(Usuario entity) {
-        return UsuarioResponse.builder()
-                .id(entity.getId())
-                .nome(entity.getNome())
-                .email(entity.getEmail())
-                .username(entity.getUsername())
-                .perfil(entity.getPerfil())
-                .build();
-    }
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "perfil", ignore = true)
+    Usuario toEntity(UsuarioRequest request);
+    UsuarioResponse toResponse(Usuario entity);
 }

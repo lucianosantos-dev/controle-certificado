@@ -5,7 +5,6 @@ import com.lucianodev.controlecertificado.dtos.response.UsuarioResponse;
 import com.lucianodev.controlecertificado.entities.Usuario;
 import com.lucianodev.controlecertificado.exceptions.ConflictException;
 import com.lucianodev.controlecertificado.factories.UsuarioFactory;
-import com.lucianodev.controlecertificado.mapper.UsuarioMapper;
 import com.lucianodev.controlecertificado.repositories.UsuarioRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

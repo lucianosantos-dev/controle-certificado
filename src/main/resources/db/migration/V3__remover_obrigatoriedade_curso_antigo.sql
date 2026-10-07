@@ -1,0 +1,1 @@
+ALTER TABLE tb_solicitacao ALTER COLUMN curso DROP NOT NULL;

@@ -2,7 +2,6 @@ package com.lucianodev.controlecertificado.factories;
 
 import com.lucianodev.controlecertificado.dtos.request.UsuarioRequest;
 import com.lucianodev.controlecertificado.entities.Usuario;
-import com.lucianodev.controlecertificado.enums.Perfil;
 
 public class UsuarioFactory {
 
@@ -12,7 +11,6 @@ public class UsuarioFactory {
         usuarioRequest.setEmail("luciano@email.com");
         usuarioRequest.setSenha("068732@");
         usuarioRequest.setUsername("lusantos");
-        usuarioRequest.setPerfil(Perfil.PEDAGOGICO);
         return usuarioRequest;
     }
 
@@ -23,7 +21,6 @@ public class UsuarioFactory {
         usuario.setEmail(usuarioRequest().getEmail());
         usuario.setSenha(usuarioRequest().getSenha());
         usuario.setUsername(usuarioRequest().getUsername());
-        usuario.setPerfil(usuarioRequest().getPerfil());
         return usuario;
     }
 }
