@@ -20,6 +20,7 @@ public interface SolicitacaoMapper {
     @Mapping(target = "nomeCurso.id", source = "cursoId")
     Solicitacao toEntity(SolicitacaoRequest request);
 
+    @Mapping(target = "curso", source = "nomeCurso.nome")
     SolicitacaoResponse toResponse(Solicitacao entity);
 
     @Mapping(target = "curso", source = "nomeCurso.nome")
